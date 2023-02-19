@@ -1,0 +1,17 @@
+---
+- name: Update Ubuntu 22.04
+  hosts: ubuntupruebas
+  become: true
+#  become_user: root #[Esta línea indica al usuario root - preguntar a Paco]
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade packages
+      apt:
+        upgrade: dist
+
+    - name: Autoremove packages
+      apt:
+        autoremove: yes

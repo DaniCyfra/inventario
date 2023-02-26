@@ -1,0 +1,10 @@
+---
+- hosts: ubuntupruebas
+  remote_user: ansible
+  become: yes
+  roles:
+  - role: update_packages
+  - role: clamav_install
+  - role: lock_screen
+  - role: ufw
+  - role: auth_failed

@@ -1,0 +1,29 @@
+---
+
+# Instalación y configuración de ufw
+#
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install ufw
+  apt:
+    name: ufw
+    state: present
+
+- name: Configure ufw to allow SSH and internet traffic
+  ufw:
+    rule: allow
+    direction: in
+    port: ssh
+
+- name: Allow outgoing traffic to internet
+  ufw:
+    rule: allow
+    direction: out
+    port: 443 
+
+- name: Enable ufw
+  ufw:
+    state: enabled
